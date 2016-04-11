@@ -3,7 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :title
       t.text :summary
-      t.integer :content
+      t.string :gameLink
 
       t.timestamps null: false
     end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  root "videos#index"
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index, :destroy]
+  resources :videos
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
   # The priority is based upon order of creation: first created -> highest priority.

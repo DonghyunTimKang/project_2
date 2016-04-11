@@ -2,12 +2,8 @@
 
 one:
   title: MyString
-  content: 1
-  description: MyText
-  user_id: 1
+  urlLink: MyString
 
 two:
   title: MyString
-  content: 1
-  description: MyText
-  user_id: 1
+  urlLink: MyString

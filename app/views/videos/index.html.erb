@@ -1,0 +1,8 @@
+<h1>Game Videos</h1>
+<% @videos.each do |video| %>
+      <tr>
+        <td class="content"><%= video.title %><%= raw(video.urlLink) %></td>
+        <td><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+<%= link_to 'New Video', new_video_path %>

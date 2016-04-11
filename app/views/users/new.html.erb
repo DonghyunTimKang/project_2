@@ -1,12 +1,15 @@
 <h1>Register User</h1>
 
-<%= form_for @user do |f| %>
+    <%= form_for @user do |f| %>
 
-<% flash.each do |key, msg| %>
-        <div><%= msg %></div>
+    <% flash.each do |key, msg| %>
+            <div><%= msg %></div>
 <% end %>
-<%= f.label :gamertag %>
-    <%= f.gamertag_field :gamertag %>
+    <%= f.label :gamertag %>
+    <%= f.text_field :gamertag %>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
 
     <%= f.label :password %>
     <%= f.password_field :password %>
