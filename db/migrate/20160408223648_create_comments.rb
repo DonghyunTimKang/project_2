@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.text :comment
       t.integer :user_id
-      t.integer :media_id
+      t.integer :video_id
 
       t.timestamps null: false
     end

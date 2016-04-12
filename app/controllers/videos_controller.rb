@@ -4,6 +4,8 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
+    @comment = Comment.new
+
   end
   def show
     @video = Video.find(params[:id])
@@ -20,7 +22,6 @@ class VideosController < ApplicationController
       else
        render 'new'
       end
-
   end
 
   def update
@@ -32,12 +33,14 @@ class VideosController < ApplicationController
 
     redirect_to videos_path
   end
-private
+
+  private
   def video_params
     params.require(:video).permit(:title, :urlLink)
   end
- def set_video
-  @video = Video.find(params[:id])
-end
+
+  def set_video
+    @video = Video.find(params[:id])
+  end
 
 end

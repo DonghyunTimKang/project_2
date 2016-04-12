@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, except: [:index, :destroy]
   resources :videos
+  resources :comments
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
   # The priority is based upon order of creation: first created -> highest priority.
