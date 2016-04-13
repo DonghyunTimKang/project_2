@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Game Videos</h1>
-<h2><%= current_user.gamertag %> is logged in</h2>
+
 <% @videos.each do |video| %>
   </br>
   <tr>
     <td class="content"><%= video.title %>
     </br>
+    <% video.urlLink = '<iframe frameborder=0 webkitAllowFullScreen mozallowfullscreen allowFullScreen scale="tofit" width="640" height="365" style="max-width:100%" src="' + video.urlLink.to_s + '/embed"></iframe>' %>
     <%= raw(video.urlLink) %></td>
     </br>
     Pwn by <%= video.user.gamertag %>
@@ -26,6 +27,7 @@
     </br>
     <td class="content"><%= comment.comment %></td>
     <td>
+    <%= link_to 'Edit', edit_comment_path(comment) %>
     <% if (comment.user.gamertag == current_user.gamertag)%>
     <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>

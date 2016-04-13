@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  before_action :authorize, except: [:index, :show]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, except: [:index, :show]
   before_action :only_my_comments, only: [:destroy, :edit, :update]
 
   def index
@@ -22,6 +22,21 @@ class CommentsController < ApplicationController
         redirect_to videos_path
       else
        render 'new'
+    end
+  end
+
+  def edit
+      @comment = Comment.find(params[:id])
+  end
+
+
+  def update
+    @comment = Comment.find(params[:id])
+    @comment.user = current_user
+      if @comment.update(comment_params)
+        redirect_to videos_path
+      else
+       render 'edit'
     end
   end
 
