@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authorize, except: [:index, :show]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :only_my_comments, only: [:destroy, :edit, :update]
 
   def index
     @comments=Comment.all
@@ -41,4 +42,7 @@ private
     @comment = Comment.find(params[:id])
   end
 
+  def only_my_comments
+      redirect_to root_path, notice: "you can't delete other people's comments" if (current_user != @comment.user)
+  end
 end

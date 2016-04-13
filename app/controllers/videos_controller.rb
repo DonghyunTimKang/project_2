@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :authorize, except: [:index, :show]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :only_my_videos, only: [:destroy, :edit, :update]
 
   def index
     @videos = Video.all
@@ -42,4 +43,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
   end
 
+  def only_my_videos
+      redirect_to root_path, notice: "you can't delete other people's videos" if (current_user != @video.user)
+  end
 end

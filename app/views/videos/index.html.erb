@@ -1,27 +1,41 @@
-<h1>Game Videos</h1>
+<p id="notice"><%= notice %></p>
 
+<h1>Game Videos</h1>
+<h2><%= current_user.gamertag %> is logged in</h2>
 <% @videos.each do |video| %>
-<%= video.id %>
   </br>
   <tr>
     <td class="content"><%= video.title %>
     </br>
     <%= raw(video.urlLink) %></td>
     </br>
-    <td><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    Pwn by <%= video.user.gamertag %>
+    </br>
+    <% if (video.user.gamertag == current_user.gamertag) %>
+      <td>
+      <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    <% end %>
+
+
   </tr>
   </br>
   <% video.comments.each do |comment| %>
-</br>
-    <td class="content"><%= comment.comment %><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-</td>
-<% end %>
-  <%= form_for(video.comments.build) do |f| %>
+    </br>
+    Comment by <%= comment.user.gamertag %>
+    </br>
+    <td class="content"><%= comment.comment %></td>
+    <td>
+    <% if (comment.user.gamertag == current_user.gamertag)%>
+    <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+    </td>
+  <% end %>
 
+  <%= form_for(video.comments.build) do |f| %>
       <%= f.label :Comment %><br>
       <%= f.text_field :comment %>
       <%= f.hidden_field :video_id %>
-      <%= video.id%>
       <%= f.submit %>
   <% end %>
 

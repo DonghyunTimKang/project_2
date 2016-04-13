@@ -9,7 +9,7 @@
   <p>
     <%= f.label :URL %><br>
     <%= f.text_area :urlLink %>
-    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :user_id , :value => current_user.id %>
 
   </p>
 
