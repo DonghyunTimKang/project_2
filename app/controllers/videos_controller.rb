@@ -4,8 +4,6 @@ class VideosController < ApplicationController
 
   def index
     @videos = Video.all
-    @comment = Comment.new
-
   end
   def show
     @video = Video.find(params[:id])
@@ -17,6 +15,7 @@ class VideosController < ApplicationController
 
   def create
     @video = Video.new(video_params)
+    @video.user = current_user
       if @video.save
         redirect_to videos_path
       else
@@ -36,7 +35,7 @@ class VideosController < ApplicationController
 
   private
   def video_params
-    params.require(:video).permit(:title, :urlLink)
+    params.require(:video).permit(:title, :urlLink, :user_id)
   end
 
   def set_video

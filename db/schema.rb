@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160411180914) do
   create_table "videos", force: :cascade do |t|
     t.string   "title"
     t.string   "urlLink"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

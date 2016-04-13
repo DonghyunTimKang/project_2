@@ -1,6 +1,8 @@
 <h1>Game Videos</h1>
 
 <% @videos.each do |video| %>
+<%= video.id %>
+  </br>
   <tr>
     <td class="content"><%= video.title %>
     </br>
@@ -9,15 +11,21 @@
     <td><%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   </br>
+  <% video.comments.each do |comment| %>
+</br>
+    <td class="content"><%= comment.comment %><%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+</td>
+<% end %>
   <%= form_for(video.comments.build) do |f| %>
 
       <%= f.label :Comment %><br>
       <%= f.text_field :comment %>
       <%= f.hidden_field :video_id %>
-
+      <%= video.id%>
       <%= f.submit %>
-
   <% end %>
+
+<%= link_to 'View Comments', comments_path %>
 
 <% end %>
 
