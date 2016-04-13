@@ -2,7 +2,7 @@
 
 <h1>Game Videos</h1>
 
-<% @videos.each do |video| %>
+<% @videos.reverse_each do |video| %>
   </br>
   <tr>
     <td class="content"><%= video.title %>
@@ -12,12 +12,13 @@
     </br>
     Pwn by <%= video.user.gamertag %>
     </br>
+  <% if current_user %>
     <% if (video.user.gamertag == current_user.gamertag) %>
       <td>
       <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
     <% end %>
-
+  <% end %>
 
   </tr>
   </br>
@@ -27,13 +28,14 @@
     </br>
     <td class="content"><%= comment.comment %></td>
     <td>
-    <%= link_to 'Edit', edit_comment_path(comment) %>
-    <% if (comment.user.gamertag == current_user.gamertag)%>
-    <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if current_user %>
+        <% if (comment.user.gamertag == current_user.gamertag)%>
+          <%= link_to 'Edit', edit_comment_path(comment) %>
+          <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      <% end %>
     <% end %>
     </td>
-  <% end %>
-
   <%= form_for(video.comments.build) do |f| %>
       <%= f.label :Comment %><br>
       <%= f.text_field :comment %>

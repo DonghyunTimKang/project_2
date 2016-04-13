@@ -6,9 +6,13 @@
 
     <%= label_tag :gamertag %>
     <%= text_field_tag :gamertag, params[:gamertag] %>
-
+    </br>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
-
+    </br>
     <%= submit_tag "Log in" %>
+    </br>
+    <div>Not a member?</div>
+    <%= link_to 'Click here to be a member!', new_user_path %>
+
 <% end %>

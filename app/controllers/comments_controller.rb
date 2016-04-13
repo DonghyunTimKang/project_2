@@ -58,6 +58,6 @@ private
   end
 
   def only_my_comments
-      redirect_to root_path, notice: "you can't delete other people's comments" if (current_user != @comment.user)
+      redirect_to root_path, notice: "you can't change other people's comments" if (current_user != @comment.user)
   end
 end
