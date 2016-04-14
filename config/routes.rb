@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :comments
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
+  get "/home", to: "videos#index"
+  get "logout", to: "sessions#destroy"
+  get "/new_video", to: "videos#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

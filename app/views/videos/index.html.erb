@@ -1,5 +1,32 @@
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">
+        <img alt="Brand" src="...">
+      </a>
+      <div class="btn-group">
+        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Options</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/login">Login</a>
+          </br>
+          <a class="dropdown-item" href="/logout">Logout</a>
+          </br>
+          <a class="dropdown-item" href="/register">Sign Up</a>
+        </div>
+      </div>
+      <div class="btn-group">
+       <a href="/new_video" class="btn btn-primary btn-lg active" role="button">New Video</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<% if current_user %>
+ <% if notice %>
+  <div id="notice"><%= notice %> <%= current_user.gamertag %></div>
+  <% end %>
+    <div id="notice"><%= 'Welcome' %> <%= current_user.gamertag %></div>
 
+<% end %>
 <h1>Game Videos</h1>
 
 <% @videos.reverse_each do |video| %>
@@ -43,11 +70,9 @@
       <%= f.submit %>
   <% end %>
 
-<%= link_to 'View Comments', comments_path %>
 
 <% end %>
 
 </br>
-<%= link_to 'New Video', new_video_path %>
-<%= link_to 'Logout', session_path('dummy'), method: :delete %>
+
 
