@@ -1,3 +1,70 @@
 // Place all the styles related to the videos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-brand img {
+   max-height: 300px;
+   max-width: 200px;
+   margin: 0 auto;
+    }
+
+.navbar-header{
+  width:100%;
+  padding: 20px;
+  background-color: black;
+}
+
+.btn-group {
+    float: right;
+    padding: 15px;
+}
+
+.container-fluid{
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-left: 50px;
+}
+
+.video_feed {
+  margin-left: 40px;
+  border: 5px solid black;
+  max-width: 640px;
+  max-height: 365px;
+}
+#notice {
+  margin-left: 50px;
+  color: orange;
+}
+.comment_feed {
+  margin-left: 60px;
+  border: 5px solid black;
+  max-width: 320px;
+  word-wrap:break-word;
+
+}
+
+.user_comment {
+  margin-left: 60px;
+
+}
+.comment_functions {
+    margin-left: 60px;
+
+}
+.comment_box {
+    margin-left: 60px;
+
+}
+.video_user_sig {
+  margin-left: 50px;
+}
+.video_function {
+  margin-left: 50px;
+}
+
