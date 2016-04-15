@@ -40,7 +40,9 @@
       <div class="video_feed"><%= raw(video.urlLink) %></div>
     </td>
     </br>
+    <% if video.user %>
     <div class="video_user_sig">Pwn by <%= video.user.gamertag %></div>
+    <% end %>
     <div class="video_function">
       <% if current_user %>
         <% if (video.user.gamertag == current_user.gamertag) %>
