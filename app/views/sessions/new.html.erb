@@ -1,18 +1,42 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">
+        <img src="http://i.imgur.com/AQOszO0.jpg">
+      </a>
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Options</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/login">Login</a>
+          </br>
+          <a class="dropdown-item" href="/logout">Logout</a>
+          </br>
+          <a class="dropdown-item" href="/register">Sign Up</a>
+        </div>
+      </div>
+      <div class="btn-group">
+       <a href="/new_video" class="btn btn-secondary btn-lg active" role="button">New Video</a>
+      </div>
+    </div>
+</nav>
+
 <h1>Login</h1>
-<%= form_tag sessions_path do %>
-    <% flash.each do |key, msg| %>
-        <div><%= msg %></div>
+<body class="main_page">
+    <%= form_tag sessions_path do %>
+        <% flash.each do |key, msg| %>
+            <div><%= msg %></div>
+        <% end %>
+        <div class="register">
+            <div class="text"><%= label_tag :gamertag %></div>
+            <div class="text_box"><%= text_field_tag :gamertag, params[:gamertag] %></div>
+            </br>
+            <div class="text"><%= label_tag :password %></div>
+            <div class="text_box"><%= password_field_tag :password %></div>
+            </br>
+            <div class="submit"><%= submit_tag "Log in" %></div>
+            </br>
+            <div class="text">Not a member?
+                <%= link_to 'Click here to be a member!', new_user_path %>
+            </div>
+        </div>
     <% end %>
-
-    <%= label_tag :gamertag %>
-    <%= text_field_tag :gamertag, params[:gamertag] %>
-    </br>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    </br>
-    <%= submit_tag "Log in" %>
-    </br>
-    <div>Not a member?</div>
-    <%= link_to 'Click here to be a member!', new_user_path %>
-
-<% end %>
+</body>

@@ -1,22 +1,42 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">
+        <img src="http://i.imgur.com/AQOszO0.jpg">
+      </a>
+      <div class="btn-group">
+        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account Options</button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="/login">Login</a>
+          </br>
+          <a class="dropdown-item" href="/logout">Logout</a>
+          </br>
+          <a class="dropdown-item" href="/register">Sign Up</a>
+        </div>
+      </div>
+    </div>
+</nav>
+
 <h1>Register User</h1>
 
+<body class="main_page">
     <%= form_for @user do |f| %>
-
-    <% flash.each do |key, msg| %>
+        <% flash.each do |key, msg| %>
             <div><%= msg %></div>
-<% end %>
-    <%= f.label :gamertag %>
-    <%= f.text_field :gamertag %>
-    </br>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    </br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    </br>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    </br>
-    <%= f.submit  "Register" %>
-
-<% end %>
+        <% end %>
+        <div class="register">
+            <div class="text"><%= f.label :gamertag %></div>
+            <div class="text_box"><%= f.text_field :gamertag %></div>
+            </br>
+            <div class="text"><%= f.label :email %></div>
+            <div class="text_box"><%= f.text_field :email %></div>
+            </br>
+            <div class="text"><%= f.label :password %></div>
+            <div class="text_box"><%= f.password_field :password %></div>
+            </br>
+            <div class="text"><%= f.label :password_confirmation %></div>
+            <div class="text_box"><%= f.password_field :password_confirmation %></div>
+            </br>
+            <div class="submit"><%= f.submit  "Register" %></div>
+        </div>
+    <% end %>
+</body>

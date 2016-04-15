@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default">
-
     <div class="navbar-header">
       <a class="navbar-brand" href="/home">
         <img src="http://i.imgur.com/AQOszO0.jpg">
@@ -18,66 +17,66 @@
        <a href="/new_video" class="btn btn-secondary btn-lg active" role="button">New Video</a>
       </div>
     </div>
-
 </nav>
+
 <body class="main_page">
-<h1>Pwn Zone</h1>
+  <h1>Pwn Zone</h1>
 
-<% if current_user %>
-  <% if notice %>
-    <div id="notice"><%= notice %> <%= current_user.gamertag %></div>
-  <% end %>
-  <div id="notice"><%= 'Welcome back' %> <%= current_user.gamertag %></div>
-<% end %>
-
-<% @videos.reverse_each do |video| %>
-  </br>
-  <tr>
-    <td class="content">
-      <h2><%= video.title %></h2>
-      </br>
-      <% video.urlLink = '<iframe frameborder=0 allowFullScreen scale="tofit" width="640" height="365" style="max-width:100%" src="' + video.urlLink.to_s + '/embed"></iframe>' %>
-      <div class="video_feed"><%= raw(video.urlLink) %></div>
-    </td>
-    </br>
-    <% if video.user %>
-    <div class="video_user_sig">Pwn by <%= video.user.gamertag %></div>
+  <% if current_user %>
+    <% if notice %>
+      <div id="notice"><%= notice %> <%= current_user.gamertag %></div>
     <% end %>
-    <div class="video_function">
-      <% if current_user %>
-        <% if video.user && (video.user.gamertag == current_user.gamertag) %>
-          <td>
-          <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </td>
+    <div id="notice"><%= 'Welcome back' %> <%= current_user.gamertag %></div>
+  <% end %>
+
+  <% @videos.reverse_each do |video| %>
+    </br>
+    <tr>
+      <td class="content">
+        <h2><%= video.title %></h2>
+        </br>
+        <% video.urlLink = '<iframe frameborder=0 allowFullScreen scale="tofit" width="640" height="365" style="max-width:100%" src="' + video.urlLink.to_s + '/embed"></iframe>' %>
+        <div class="video_feed"><%= raw(video.urlLink) %></div>
+      </td>
+      </br>
+      <% if video.user %>
+      <div class="video_user_sig">Pwn by <%= video.user.gamertag %></div>
+      <% end %>
+      <div class="video_function">
+        <% if current_user %>
+          <% if video.user && (video.user.gamertag == current_user.gamertag) %>
+            <td>
+            <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          <% end %>
         <% end %>
+      </div>
+    </tr>
+
+    </br>
+    <% video.comments.each do |comment| %>
+      </br>
+      <div class="user_comment">Comment by <%= comment.user.gamertag %></div>
+
+      <div class="comment_feed"><%= comment.comment %></div>
+      <div class="comment_functions">
+
+        <% if current_user %>
+          <% if comment.user && (comment.user.gamertag == current_user.gamertag)%>
+            <%= link_to 'Edit', edit_comment_path(comment) %>
+            <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        <% end %>
+        </div>
+      <% end %>
+
+    <div class="comment_box">
+      <%= form_for(video.comments.build) do |f| %>
+          <%= f.label :Comment %><br>
+          <%= f.text_field :comment %>
+          <%= f.hidden_field :video_id %>
+          <%= f.submit %>
       <% end %>
     </div>
-  </tr>
-
-  </br>
-  <% video.comments.each do |comment| %>
-    </br>
-    <div class="user_comment">Comment by <%= comment.user.gamertag %></div>
-
-    <div class="comment_feed"><%= comment.comment %></div>
-    <div class="comment_functions">
-
-      <% if current_user %>
-        <% if comment.user && (comment.user.gamertag == current_user.gamertag)%>
-          <%= link_to 'Edit', edit_comment_path(comment) %>
-          <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      <% end %>
-      </div>
-    <% end %>
-
-  <div class="comment_box">
-    <%= form_for(video.comments.build) do |f| %>
-        <%= f.label :Comment %><br>
-        <%= f.text_field :comment %>
-        <%= f.hidden_field :video_id %>
-        <%= f.submit %>
-    <% end %>
-  </div>
-<% end %>
+  <% end %>
 </body>
