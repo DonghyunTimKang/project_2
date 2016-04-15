@@ -1,11 +1,22 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/home">
+        <img src="http://i.imgur.com/AQOszO0.jpg">
+      </a>
+    </div>
+</nav>
+
 <h1> Edit Comment </h1>
-<%= form_for(@comment) do |f| %>
-  <p>
-    <%= f.label :Comment %><br>
-    <%= f.text_field :comment %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-<%= link_to 'Back', root_path %>
+
+<body class="main_page">
+  <%= form_for(@comment) do |f| %>
+    <div class="comment_box">
+      <div class="update">
+        <%= f.text_field :comment %>
+        <%= f.submit %>
+      </div>
+    </div>
+  <% end %>
+</body>
+
+

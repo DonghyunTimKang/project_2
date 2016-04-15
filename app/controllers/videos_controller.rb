@@ -47,4 +47,5 @@ class VideosController < ApplicationController
   def only_my_videos
       redirect_to root_path, notice: "you can't delete other people's videos" if (current_user != @video.user)
   end
+
 end
