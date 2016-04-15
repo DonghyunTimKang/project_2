@@ -30,13 +30,14 @@
   </div>
 
   <h1>The Latest PWNs</h1>
-
+  <div class="current_user">
   <% if current_user %>
     <% if notice %>
       <div id="notice"><%= notice %> <%= current_user.gamertag %></div>
     <% end %>
     <div id="notice"><%= 'Welcome back' %> <%= current_user.gamertag %></div>
   <% end %>
+  </div>
 
   <% @videos.reverse_each do |video| %>
     </br>
