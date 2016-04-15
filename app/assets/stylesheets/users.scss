@@ -1,6 +1,9 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.show_user {
+  font-size: 600%;
+}
 .register {
   margin: 0 auto;
   border: 5px solid #4b3947;
@@ -28,7 +31,26 @@
 .text {
   text-align: center;
 }
-#trans {
-    transition-delay: 5s;
+
+.home {
+ transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  }
+.guideline {
+  margin-top: 150px;
+  text-align: center;
+  color: white;
+}
+.sum{
+  text-align: center;
+  margin: 0 auto;
+  border: 5px solid #4b3947;
+  max-width: 320px;
+  word-wrap:break-word;
+  color: white;
+  background-color: grey;
+
 
 }
+

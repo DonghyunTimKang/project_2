@@ -13,19 +13,3 @@
  *= require_tree .
  *= require_self
  */
-#video-background {
-/*  making the video fullscreen  */
-  position: absolute;
-  display: block;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: initial;
-  height: auto;
-  z-index: 1;
-  margin: 0 auto;
-  object-fit: cover;
-  padding: 0;
-}
-Use HTML5 to display the fullscreen video background
