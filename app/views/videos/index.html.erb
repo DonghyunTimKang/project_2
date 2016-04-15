@@ -45,7 +45,7 @@
     <% end %>
     <div class="video_function">
       <% if current_user %>
-        <% if (video.user.gamertag == current_user.gamertag) %>
+        <% if video.user && (video.user.gamertag == current_user.gamertag) %>
           <td>
           <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
@@ -61,8 +61,9 @@
 
     <div class="comment_feed"><%= comment.comment %></div>
     <div class="comment_functions">
+
       <% if current_user %>
-        <% if (comment.user.gamertag == current_user.gamertag)%>
+        <% if comment.user && (comment.user.gamertag == current_user.gamertag)%>
           <%= link_to 'Edit', edit_comment_path(comment) %>
           <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
