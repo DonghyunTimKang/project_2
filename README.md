@@ -9,6 +9,24 @@ This is a video hosting built on rails share videos on multiplayer clips on Micr
 
 * Twitter-Bootstrap-Rails
 * Bcrypt
-* Paperclip
+* Embedded HTML for videos
+
+
+### Instructions
+####  Terminal
+* Open the directory
+* Run rails s
+* In your browser, go to "localhost:3000"
+
+#### Browser
+* Go to pwnhub.herokuapp.com
+
+### Site Instructions
+* Make an account 
+* At the home page you can create comments and videos, and view other people's posts.
+* You cannot delete or edit posts that aren't your own.
+
+
+
 
 
