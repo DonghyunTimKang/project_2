@@ -4,7 +4,12 @@
 .main_page {
   background-color: black;
 }
-
+.btn {
+  background-color: #4b3947;
+}
+.btn-secondary{
+  color: white;
+}
 .navbar-brand img {
    max-height: 300px;
    max-width: 200px;
@@ -20,6 +25,13 @@
   background-color: black;
 }
 
+.dropdown-menu{
+  background-color: grey;
+}
+.dropdown-item{
+  margin-left: 10px;
+  color: white;
+}
 .btn-group {
     float: right;
     padding: 15px;
@@ -33,7 +45,7 @@ h1 {
 
 h2 {
   margin-left: 50px;
-  color: orange;
+  color: white;
 }
 
 .video_feed {
