@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :destroy]
   resources :videos
   resources :comments
+  get "/root", to: "videos#index"
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
   get "/home", to: "videos#index"
