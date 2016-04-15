@@ -7,6 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<section id="video-block" class="fullscreen">
+    <!-- Adjust video height and width -->
+    <script>
+        var w = $(window).width(), h = $(window).height()
+        $('#video-block video').css({height: ''+h+'',width: ''+w+''})
+        $(window).resize(function(){
+        var w = $(window).width(), h = $(window).height()
+        $('#video-block video').css({height: ''+h+'',width: ''+w+''})
+        })
+    </script>
+    <!-- Embed Video as Background-->
+    <div style="width:initial;" >
+        <video autoplay loop id="video-background" muted poster="thumbnail.jpg">
+            <source src="file:///Users/hyunjookang/Desktop/project%20background.mp4">
+        </video>
+    </div>
+</section>
 <%= yield %>
 
 </body>
